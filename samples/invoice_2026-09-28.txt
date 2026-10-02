@@ -1,0 +1,16 @@
+LONE PRAIRIE FOODSERVICE (fictional)
+1200 Sample Way, Exampleville TX 75000 * Sample data for Restaurant Ops
+INVOICE LP-884213                   Date: 09/28/2026                Terms: Net 14
+
+Ship to: Bluebird Bowl Co. - Main St (fictional) Cust # 55012
+ITEM #        DESCRIPTION                                   PACK         QTY    UNIT PRICE      EXTENDED
+LP-10442      CHICKEN THIGH BNLS SKLS 4/10LB                40 LB          3        112.00        336.00
+LP-20118      RICE JASMINE 50LB                             50 LB          2          42.00        84.00
+LP-30051      AVOCADO HASS 48CT                             48 CT          2          52.80       105.60
+LP-30210      BROCCOLI CROWNS 20LB                          20 LB          1          36.00        36.00
+LP-50012      BUTTER UNSLTD 36/1LB                          36 LB          1        108.00        108.00
+LP-91150      NAPKIN DINNER 1/8 FOLD 3000CT              3000 CT           1          38.00        38.00
+                                                                           SUBTOTAL           707.60
+                                                                           FUEL SURCHARGE       4.95
+                                                                               INVOICE TOTAL           712.55
+Price change notice: poultry market adjustment effective 09/21/2026.

@@ -7,7 +7,7 @@ item code and number here is invented for the demo.
 |---|---|
 | ingredients.csv | Ingredient master: vendor, item code, pack size/unit, pack price, yield %. Has a blank row, a "$108.00" quoted price and an upper-case unit on purpose. |
 | recipes.csv | 5 menu items + 1 sub-recipe (House sauce, 64 fl oz batch). Quantities are edible-portion (EP). |
-| invoice_2026-09-28.pdf | A vendor invoice as it arrives (chicken thighs went from $98.00 to $112.00 per 40 lb case). |
+| invoice_2026-09-28.txt | Text of a vendor invoice as it arrives (the PDF is at https://github.com/brianshepardpss/plugin-creator/tree/main/lab/sample-pdfs) (chicken thighs went from $98.00 to $112.00 per 40 lb case). |
 | invoice_2026-09-28.csv | The same invoice after line extraction and user confirmation. |
 | sales_square_items_detail.csv | 30 days of Square-style Items Detail export (includes 1 refund row). |
 | sales_toast_itemselectiondetails.csv | The same 30 days as a Toast-style ItemSelectionDetails export (includes 1 voided row; kids item named differently). |

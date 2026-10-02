@@ -13,7 +13,7 @@ samples are in `samples/` there. Write all outputs to
 1. **Plate costs.** Run plate-cost's `scripts/plate_cost.py --sample --target <T>`.
    Show the Chicken Bowl working line by line, then a one-row-per-dish table
    (plate cost, menu price, food cost %, price at target).
-2. **Last invoice.** Say that `samples/invoice_2026-09-28.pdf` was
+2. **Last invoice.** Say that `samples/invoice_2026-09-28.txt` (the vendor PDF's text) was
    extracted to `samples/invoice_2026-09-28.csv` and (in real use) you would
    show the lines for confirmation first. Run invoice-tracker's
    `scripts/invoice_tracker.py --sample --target <T>`. Show the flagged

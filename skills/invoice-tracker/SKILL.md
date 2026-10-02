@@ -12,7 +12,8 @@ yourself.
 ## 1. Get confirmed invoice lines
 
 - Demo: `--sample` uses `../../samples/invoice_2026-09-28.csv` (the
-  confirmed version of `../../samples/invoice_2026-09-28.pdf`).
+  confirmed version of `../../samples/invoice_2026-09-28.txt`, the text of the
+  vendor's PDF).
 - A CSV/spreadsheet export from the vendor portal: map its columns to
   item_code, description, pack_size, pack_unit, unit_price (the script also
   accepts common synonyms: "Item #", "SUPC", "Price", "UOM", "Pack Size").
