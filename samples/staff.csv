@@ -1,0 +1,13 @@
+employee_id,name,role,wage,age,days_available,avail_start,avail_end,max_hours,notes
+E01,Sam Sample,cook,19.50,34,Mon;Tue;Wed;Thu;Fri;Sat;Sun,08:00,22:00,50,kitchen lead; wants hours
+E02,Jordan Example,cook,18.00,27,Mon;Tue;Wed;Thu;Fri,08:00,22:00,40,
+E03,Riley Placeholder,cook,17.50,22,Wed;Thu;Fri;Sat;Sun,14:00,22:00,40,evenings only
+E04,Casey Demo,cook,17.50,41,Mon;Tue;Sat;Sun,08:00,22:00,32,
+E05,Morgan Fixture,cashier,15.50,19,Mon;Tue;Wed;Thu;Fri;Sat;Sun,10:00,22:00,40,
+E06,Taylor Mock,cashier,15.00,24,Thu;Fri;Sat;Sun,10:00,22:00,32,
+E07,Jamie Stub,cashier,15.00,20,Mon;Tue;Wed;Sun,10:00,22:00,32,
+E08,Drew Dummy,dish,14.50,30,Mon;Tue;Wed;Thu;Fri;Sat;Sun,10:00,22:00,40,
+E09,Quinn Testcase,runner,12.00,15,Mon;Tue;Wed;Thu;Fri;Sat;Sun,10:00,21:00,18,minor - school year
+E10,Avery Notreal,dish,14.50,17,Fri;Sat;Sun,10:00,22:00,24,minor (17)
+E11,Parker Sampleton,cook,17.00,29,Fri;Sat;Sun,14:00,22:00,24,weekend nights
+E12,Rowan Mockley,runner,13.00,21,Sat;Sun,10:00,22:00,16,weekends

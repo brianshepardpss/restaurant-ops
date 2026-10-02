@@ -1,0 +1,58 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R /F3 7 0 R /F4 8 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1613 >>
+stream
+BT /F4 14 Tf 40 740 Td (LONE PRAIRIE FOODSERVICE \(fictional\)) Tj ET
+BT /F3 9 Tf 40 718 Td (1200 Sample Way, Exampleville TX 75000   *   Sample data for Restaurant Ops) Tj ET
+BT /F4 11 Tf 40 704 Td (INVOICE  LP-884213        Date: 09/28/2026        Terms: Net 14) Tj ET
+BT /F3 9 Tf 40 682 Td (Ship to: Bluebird Bowl Co. - Main St \(fictional\)   Cust # 55012) Tj ET
+BT /F2 8 Tf 40 668 Td (ITEM #     DESCRIPTION                       PACK        QTY   UNIT PRICE    EXTENDED) Tj ET
+BT /F1 8 Tf 40 654 Td (LP-10442   CHICKEN THIGH BNLS SKLS 4/10LB    40 LB         3       112.00      336.00) Tj ET
+BT /F1 8 Tf 40 640 Td (LP-20118   RICE JASMINE 50LB                 50 LB         2        42.00       84.00) Tj ET
+BT /F1 8 Tf 40 626 Td (LP-30051   AVOCADO HASS 48CT                 48 CT         2        52.80      105.60) Tj ET
+BT /F1 8 Tf 40 612 Td (LP-30210   BROCCOLI CROWNS 20LB              20 LB         1        36.00       36.00) Tj ET
+BT /F1 8 Tf 40 598 Td (LP-50012   BUTTER UNSLTD 36/1LB              36 LB         1       108.00      108.00) Tj ET
+BT /F1 8 Tf 40 584 Td (LP-91150   NAPKIN DINNER 1/8 FOLD 3000CT   3000 CT         1        38.00       38.00) Tj ET
+BT /F2 8 Tf 40 570 Td (                                                           SUBTOTAL        707.60) Tj ET
+BT /F1 8 Tf 40 556 Td (                                                           FUEL SURCHARGE    4.95) Tj ET
+BT /F2 9 Tf 40 542 Td (                                                       INVOICE TOTAL       712.55) Tj ET
+BT /F3 8 Tf 40 528 Td (Price change notice: poultry market adjustment effective 09/21/2026.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000271 00000 n 
+0000001936 00000 n 
+0000002004 00000 n 
+0000002077 00000 n 
+0000002147 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+2222
+%%EOF

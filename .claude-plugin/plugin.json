@@ -1,0 +1,25 @@
+{
+  "name": "restaurant-ops",
+  "displayName": "Restaurant Ops",
+  "version": "0.1.0",
+  "description": "Plate costing, invoice price tracking, menu engineering, allergen matrix drafts and labor schedule drafts for independent restaurants, computed by bundled scripts on your own CSV exports.",
+  "author": {
+    "name": "Press Start Studios",
+    "email": "brian@press-start-studios.com",
+    "url": "https://github.com/brianshepardpss"
+  },
+  "license": "MIT",
+  "keywords": [
+    "restaurant",
+    "food-cost",
+    "recipe-costing",
+    "menu-engineering",
+    "allergens",
+    "labor"
+  ],
+  "skills": [
+    "./skills/"
+  ],
+  "homepage": "https://github.com/brianshepardpss/restaurant-ops",
+  "repository": "https://github.com/brianshepardpss/restaurant-ops"
+}
