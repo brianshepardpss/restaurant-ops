@@ -1,7 +1,7 @@
 {
   "name": "restaurant-ops",
   "displayName": "Restaurant Ops",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Plate costing, invoice price tracking, menu engineering, allergen matrix drafts and labor schedule drafts for independent restaurants, computed by bundled scripts on your own CSV exports.",
   "author": {
     "name": "Press Start Studios",
