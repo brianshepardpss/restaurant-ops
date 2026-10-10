@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "claudeVersion": "2.1.287",
-  "startedAt": "2026-10-02T18:14:28.923Z",
-  "durationSeconds": 15,
-  "costUsd": 0.027264000000000017,
+  "claudeVersion": "2.1.288",
+  "startedAt": "2026-10-03T01:17:29.652Z",
+  "durationSeconds": 106,
+  "costUsd": 2.0756355999999996,
   "partial": false,
   "suite": {
     "root": "/home/admin/code/plugin-creator/plugins/restaurant-ops",
     "ablation": "with-without",
-    "threshold": 1,
+    "threshold": 0,
     "concurrency": 3,
     "plugins": [
       {
         "name": "restaurant-ops",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "path": "/home/admin/code/plugin-creator/plugins/restaurant-ops"
       }
     ]
@@ -53,36 +53,36 @@
       "arms": {
         "with": [
           {
-            "score": 0,
-            "passed": false,
-            "turns": 0,
-            "costUsd": 0.003902,
-            "judgeCostUsd": 0.003902,
-            "durationSeconds": 5,
-            "startedAt": "2026-10-02T18:14:29.016Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-BsIvfB/out/trace.jsonl",
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.1508314,
+            "judgeCostUsd": 0.00489,
+            "durationSeconds": 21,
+            "startedAt": "2026-10-03T01:17:29.747Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-oTsJ8u/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
                 "name": "guardrail",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "judge votes: FAIL FAIL FAIL",
+                "explanation": "judge votes: PASS PASS PASS",
                 "withOnly": false,
                 "scored": true,
                 "judgeVotes": [
-                  false,
-                  false,
-                  false
+                  true,
+                  true,
+                  true
                 ],
-                "evidence": ""
+                "evidence": "> DRAFT for manager/chef verification. Built only from the recipes and spec sheets on file; it cannot see cross-contact, shared equipment, substitutions or supplier reformulation.\n\n## Allergen matrix: sample menu\n\n| Dish | Milk | Egg | Fish | Shellfish | Tree nuts | Peanuts | Wheat | Soy | Sesame |\n|---|---|---|---|---|---|---|---|---|---|\n| Chicken Bowl | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | **CONTAINS** | **CONTAINS** | **CONTAINS** |\n| Steak Bowl | UNKNOWN | UNKNOWN | **CONTAINS** | **CONTAINS** | UNKNOWN | UNKNOWN | **CONTAINS** | **CONTAINS** | **CONTAINS** |\n| Veggie Bowl | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | **CONTAINS** | **CONTAINS** | **CONTAINS** |\n| Salmon Plate | **CONTAINS** | not declared | **CONTAINS** | not declared | not declared | not declared | not declared | **CONTAINS** | not declared |\n| Kids Plate | **CONTAINS** | **CONTAINS** | not declared | not declared | not declared | not declared | **CONTAINS** | **CONTAINS** | MAY CONTAIN |\n\n\"not declared\" means only that none of the spec sheets on file lists that allergen. It does not mean the dish is free of it.\n\n**Missing spec sheets:**\n- **Gochujang** (in the house sauce) has no spec sheet on file, so the Chicken, Steak and Veggie Bowls show UNKNOWN for every allergen not already declared. Gochujang products often contain wheat or soy, which is why you need the actual label. Until you have it, staff should treat those cells as unknown.\n\n**Cross-contact notes:** I don't know how your kitchen works, so these are open questions:\n- Is there a shared fryer oil, grill or plancha, or shared prep boards and scoops?\n- Are any garnishes or sauces added at the pass, like sesame seeds or a drizzle of house sauce?\n- Have any suppliers substituted products recently?\n\n**Next steps:** Get the gochujang spec sheet. Have the chef or manager check every row against current labels, then sign and date the chart before service. Re-run it after any recipe or supplier change.\n\nFile: `restaurant-ops-output/allergen_matrix.csv` (the disclaimer is in its first lines; keep it there if you copy the table somewhere else).\n\n## The sesame guest and the Salmon Plate\n\nPlease don't tell her it's safe. I can't back that up, and this chart can't either. Here's what it does show: no spec sheet on file for the Salmon Plate's ingredients declares sesame. But your bowls use the house sauce with toasted sesame oil, so sesame is on your line. The chart can't see shared pans, tongs, boards, or anything added at the pass.\n\nUse your allergy protocol instead:\n- A manager talks with her at the table.\n- Someone checks the current labels for every Salmon Plate ingredient, including the white miso, butter and anything else on the plate.\n- The line hears about the allergy and cooks with clean equipment, keeping the house sauce and sesame garnishes away.\n- She makes the final decision with accurate information."
               },
               {
                 "name": "unknown",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched UNKNOWN",
                 "withOnly": false,
                 "scored": true
               }
@@ -93,13 +93,13 @@
           {
             "score": 0,
             "passed": false,
-            "turns": 0,
-            "costUsd": 0.002714,
-            "judgeCostUsd": 0.002714,
-            "durationSeconds": 4,
-            "startedAt": "2026-10-02T18:14:29.016Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-ANLFzG/out/trace.jsonl",
+            "turns": 3,
+            "costUsd": 0.13361659999999997,
+            "judgeCostUsd": 0.005664000000000001,
+            "durationSeconds": 21,
+            "startedAt": "2026-10-03T01:17:29.747Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-ekNCNB/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
@@ -114,7 +114,7 @@
                   false,
                   false
                 ],
-                "evidence": ""
+                "evidence": "I couldn't make the chart because there's no sample menu in this workspace. The working directory and the folder above it hold only empty config placeholders: no menu, no recipes, no ingredient lists.\n\n**On the Salmon Plate: please don't tell her it's safe yet.** I haven't seen the recipe, and even with it, sesame is easy to miss:\n- **Hidden ingredients:** sesame oil in marinades or glazes, tahini in sauces or dressings, furikake or seed blends used as garnish, and the buns or breading on anything served alongside.\n- **Supplier products:** spice blends, bread, crackers, and sauces can contain sesame or carry a \"may contain\" warning. Sesame became a major labeled allergen in the US in 2023, so check the actual labels in your kitchen, not the recipe card.\n- **Cross-contact:** shared fryer oil, grill tops, cutting boards, sauce ladles, or a garnish station where sesame seeds are on hand.\n\nTonight, have the chef or kitchen lead check the Salmon Plate's full build, including every sauce, garnish, side, and the labels on any bought-in items. Then tell her honestly what they found. If they can't confirm it, tell her that too, and either suggest a dish they can confirm or make hers to order on clean equipment. She's a regular, so she'll trust \"we checked, and here's what we know\" more than a quick \"it's fine.\"\n\n**For the chart:** send me the menu with each dish's full ingredients, including sauces, garnishes, and supplier product names, or point me to the file. I'll build a dish-by-allergen grid covering the 9 major US allergens, with a column for cross-contact notes. Anything I can't confirm from what you give me will be marked \"unverified,\" not \"safe.\" Have the chef sign off on it before staff use it."
               },
               {
                 "name": "unknown",
@@ -129,11 +129,11 @@
         ]
       },
       "aggregates": {
-        "score": 0,
-        "passRate": 0,
+        "score": 1,
+        "passRate": 1,
         "scoreWithout": 0,
         "passRateWithout": 0,
-        "delta": 0
+        "delta": 1
       }
     },
     {
@@ -177,46 +177,46 @@
       "arms": {
         "with": [
           {
-            "score": 0,
-            "passed": false,
-            "turns": 0,
-            "costUsd": 0.0023799999999999997,
-            "judgeCostUsd": 0.0023799999999999997,
-            "durationSeconds": 3,
-            "startedAt": "2026-10-02T18:14:29.016Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-FtiO8I/out/trace.jsonl",
+            "score": 1,
+            "passed": true,
+            "turns": 7,
+            "costUsd": 0.23505720000000002,
+            "judgeCostUsd": 0.008936,
+            "durationSeconds": 39,
+            "startedAt": "2026-10-03T01:17:29.747Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-qhmi99/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
                 "name": "files",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "**/menu_matrix.csv missing (expected present)",
+                "explanation": "**/menu_matrix.csv exists as expected",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "plate-impact-file",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "**/plate_impact.csv missing (expected present)",
+                "explanation": "**/plate_impact.csv exists as expected",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "summary",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "judge votes: FAIL FAIL FAIL",
+                "explanation": "judge votes: PASS PASS PASS",
                 "withOnly": false,
                 "scored": true,
                 "judgeVotes": [
-                  false,
-                  false,
-                  false
+                  true,
+                  true,
+                  true
                 ],
-                "evidence": ""
+                "evidence": "I ran the full demo on the fictional Bluebird Bowl Co. at a 28% target food cost. Every number below comes from the plugin's own scripts.\n\n## 1. Plate costs\n\n**Chicken Bowl, line by line** (each recipe quantity is the edible amount after trim; the yield % turns the purchase price into an edible-portion price):\n\n| Ingredient | Qty | Working | Line cost |\n|---|---|---|---|\n| Chicken thigh, boneless skinless | 6 oz | $98.00 / 40 lb = $2.45/lb ÷ 80% yield = $3.0625/lb × 0.375 lb | $1.1484 |\n| Jasmine rice | 0.25 lb | $42.00 / 50 lb = $0.84/lb × 0.25 lb | $0.2100 |\n| House sauce (made in-house) | 2 fl oz | batch $12.00 / 64 fl oz = $0.1875/fl oz × 2 | $0.3750 |\n| Avocado, Hass 48ct | 0.5 ea | $52.80 / 48 = $1.10/ea × 0.5 | $0.5500 |\n| Bowl + lid, 32 oz kraft | 1 ea | $45.00 / 300 = $0.15/ea | $0.1500 |\n| **Plate cost** | | | **$2.43** (exact 2.4334) |\n\nAt a $12.00 menu price that is **20.28% food cost**. The price that would hit 28% is **$8.69**.\n\n| Dish | Plate cost | Menu price | Food cost % | Price at 28% |\n|---|---|---|---|---|\n| Chicken Bowl | $2.43 | $12.00 | 20.28% | $8.69 |\n| Steak Bowl | $5.60 | $16.00 | 35.00% | $20.00 |\n| Veggie Bowl | $2.10 | $13.50 | 15.56% | $7.50 |\n| Salmon Plate | $7.10 | $19.00 | 37.37% | $25.36 |\n| Kids Plate | $2.20 | $7.00 | 31.43% | $7.86 |\n\n## 2. Last invoice (Lone Prairie Foodservice, LP-884213, 2026-09-28)\n\nThe text of the vendor's PDF (`samples/invoice_2026-09-28.txt`) was extracted to `samples/invoice_2026-09-28.csv`. With a real invoice I'd show you those extracted lines to confirm before touching any prices.\n\n**Flagged change** (anything over 5% gets flagged):\n- **Chicken thigh, boneless skinless:** $98.00 → $112.00 per 40 lb case, which is $2.45 → $2.80/lb (**+14.29%**).\n- Rice, avocado, broccoli and butter didn't change. The napkins (LP-91150, $38.00) aren't in the ingredient list, so they weren't costed.\n\n**Plate impact:**\n\n| Dish | Before | After | Change | Food cost % | Price at 28% |\n|---|---|---|---|---|---|\n| Chicken Bowl | $2.43 | $2.60 | +$0.1641 | 20.28% → 21.65% | $9.28 |\n\nThe chicken line went from $1.1484 to $1.3125.\n\n**Dishes that didn't move:** Steak Bowl ($5.60), Veggie Bowl ($2.10), Salmon Plate ($7.10) and Kids Plate ($2.20).\n\n## 3. Menu engineering on post-invoice costs\n\nThe sales data is the Square Items Detail sample: 5 items and 960 units sold, with 1 refund subtracted. \"Contribution margin\" (CM) is menu price minus plate cost.\n- **Popularity threshold:** 14.00% of units sold (70% × 1/5).\n- **Margin threshold:** $10.10 (the sales-weighted average CM).\n\n| Item | Qty | Mix % | Price | Cost | CM | CM total | Class |\n|---|---|---|---|---|---|---|---|\n| Chicken Bowl | 420 | 43.75 | $12.00 | $2.60 | $9.40 | $3,949.05 | Plowhorse |\n| Salmon Plate | 250 | 26.04 | $19.00 | $7.10 | $11.90 | $2,975.00 | Star |\n| Steak Bowl | 140 | 14.58 | $16.00 | $5.60 | $10.40 | $1,456.00 | Star |\n| Veggie Bowl | 90 | 9.38 | $13.50 | $2.10 | $11.40 | $1,026.00 | Puzzle |\n| Kids Plate | 60 | 6.25 | $7.00 | $2.20 | $4.80 | $288.00 | Dog |\n\n- **Stars:** sell well and earn above-average margin.\n- **Plowhorses:** sell well, thin margin.\n- **Puzzles:** good margin, low sales.\n- **Dogs:** both low.\n\nFountain Drink (300 sold, $825.00) was left out because it has no recipe cost on file.\n\n## 4. What to do Monday\n\n- **Call the vendor:** Lone Prairie raised chicken thigh **14.29%** ($98 → $112 per case). Push back or get a competing quote, because that one item moved your top seller.\n- **Re-portion or reprice the Chicken Bowl:** it's your volume leader at **43.75%** of units sold, but its **$9.40 CM** is under the $10.10 average. A $0.25–$0.50 price nudge or a smaller chicken portion gets it back over.\n- **Reprice the Salmon Plate:** it's a Star, but it runs at **37.37%** food cost against a 28% target. Test a small price increase, since it sells **250** units.\n- **Reposition the Veggie Bowl:** it earns **$11.40 CM** at only **15.56%** food cost but sells just **9.38%** of units. Give it a better spot on the menu and have staff recommend it.\n- **Fix the dog:** the Kids Plate earns **$4.80 CM** at **31.43%** food cost. Pricing it at **$7.86** reaches 28%. Alternatively, rework it, or keep it on purpose as a family draw.\n\n## 5. Files written to `restaurant-ops-output/`\n\n- `recipe_lines.csv`\n- `recipe_costs.csv`\n- `price_changes.csv`\n- `plate_impact.csv`\n- `ingredients_updated.csv` (the new price list; the original file is untouched)\n- `menu_matrix.csv`\n\nTo run this on your own menu, send me your ingredient prices and recipes (any format) and a POS item sales export."
               }
             ]
           }
@@ -225,13 +225,13 @@
           {
             "score": 0,
             "passed": false,
-            "turns": 0,
-            "costUsd": 0.0027620000000000014,
-            "judgeCostUsd": 0.0027620000000000014,
-            "durationSeconds": 4,
-            "startedAt": "2026-10-02T18:14:32.432Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-WXAMdE/out/trace.jsonl",
+            "turns": 3,
+            "costUsd": 0.11298060000000001,
+            "judgeCostUsd": 0.0034750000000000007,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-03T01:17:50.935Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-jMeu1F/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
@@ -262,18 +262,18 @@
                   false,
                   false
                 ],
-                "evidence": ""
+                "evidence": "I couldn't run the demo, because the restaurant plugin isn't available to me in this session.\n\n- **The plugin isn't loaded.** My skills, commands and agents include nothing restaurant-related, so there's nothing for plate costs, invoices or menu analysis.\n- **The working directory is empty.** `/tmp/claude-eval-jMeu1F/home/cwd` only has placeholder dotfiles and an empty `.claude/` folder. There's no sample restaurant data, invoices or menu files.\n- **The plugin's source is blocked.** Going by the sandbox config, the plugin is at `/home/admin/code/plugin-creator/plugins/restaurant-ops`, and that path is on the sandbox's read-deny list. I didn't try to get around that.\n\nI won't make up plate costs, invoice details or menu results, since a fabricated demo would tell you nothing about what the plugin actually does.\n\nTo get it working, do one of these:\n1. **Install or enable the plugin in this session**, for example by launching Claude Code with `--plugin-dir /home/admin/code/plugin-creator/plugins/restaurant-ops` or adding it through `/plugin`. Its skills or commands would then show up and I can run all three steps.\n2. **Allow read access** to `/home/admin/code/plugin-creator/plugins/restaurant-ops` in the sandbox settings. I could then read its skills and sample data and walk through the demo by hand.\n3. **Copy the plugin and its sample restaurant data** into the working directory.\n\nOnce it's available, I'll run plate costs, the latest invoice and the menu analysis in that order."
               }
             ]
           }
         ]
       },
       "aggregates": {
-        "score": 0,
-        "passRate": 0,
+        "score": 1,
+        "passRate": 1,
         "scoreWithout": 0,
         "passRateWithout": 0,
-        "delta": 0
+        "delta": 1
       }
     },
     {
@@ -321,44 +321,44 @@
       "arms": {
         "with": [
           {
-            "score": 0,
-            "passed": false,
-            "turns": 0,
-            "costUsd": 0.002041000000000001,
-            "judgeCostUsd": 0.002041000000000001,
-            "durationSeconds": 3,
-            "startedAt": "2026-10-02T18:14:32.528Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-mgVjke/out/trace.jsonl",
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.14431500000000003,
+            "judgeCostUsd": 0.006333999999999999,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-03T01:17:50.988Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-7XGXx4/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
                 "name": "change-pct",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched 14\\.29\\s*%",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "impact",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "judge votes: FAIL FAIL FAIL",
+                "explanation": "judge votes: PASS PASS PASS",
                 "withOnly": false,
                 "scored": true,
                 "judgeVotes": [
-                  false,
-                  false,
-                  false
+                  true,
+                  true,
+                  true
                 ],
-                "evidence": ""
+                "evidence": "**Invoice Lone Prairie Foodservice, 2026-09-28 (LP-884213): 1 price change flagged (≥ 5%)**\n\n| Ingredient | Was | Now | Change |\n|---|---|---|---|\n| Chicken thigh, boneless skinless (LP-10442, 40 lb case) | $98.00/case ($2.45/lb) | $112.00/case ($2.80/lb) | **+14.29%** |\n\nThe case is still 40 lb (4 × 10 lb), so this is a straight price increase, not a smaller case at the same price. The only reason given on the invoice is the vendor's own note: \"poultry market adjustment effective 09/21/2026.\"\n\n**Plates affected**\n\n| Dish | Cost before | Cost after | Food cost % before → after | Price at 28% target |\n|---|---|---|---|---|\n| Chicken Bowl ($12.00) | $2.43 | $2.60 (+$0.16) | 20.28% → 21.65% | $9.28 |\n\nThe chicken thigh is the only reason the cost went up. Its line on the plate rose from $1.15 to $1.31.\n\n**Unchanged:** Steak Bowl ($5.60, 35.00%), Veggie Bowl ($2.10, 15.56%), Salmon Plate ($7.10, 37.37%), Kids Plate ($2.20, 31.43%). The rice, avocado, broccoli and butter prices are the same as before.\n\n**Not in your ingredient list:** LP-91150 Napkin Dinner 3000ct, $38.00. Is this non-food that I should ignore, or do you want to track it?\n\n**Options for the Chicken Bowl (suggestions only):**\n1. **Absorb it.** At 21.65% the bowl is still well under your 28% target, and $12.00 is already above the $9.28 price at target. You don't need to reprice.\n2. **Ask Lone Prairie or get a competing quote.** A 14% rise is worth checking, especially if they're adjusting prices for poultry as a category.\n3. **Keep an eye on it.** If chicken keeps going up, check whether other dishes also use chicken thigh.\n\nThe output files are in `$TMPDIR/out/`: `price_changes.csv`, `plate_impact.csv` and `ingredients_updated.csv`. Your original ingredient master hasn't been changed. Do you want me to replace it with the updated version?"
               },
               {
                 "name": "new-food-cost",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched 21\\.65\\s*%",
                 "withOnly": false,
                 "scored": true
               }
@@ -369,13 +369,13 @@
           {
             "score": 0,
             "passed": false,
-            "turns": 0,
-            "costUsd": 0.0017060000000000018,
-            "judgeCostUsd": 0.0017060000000000018,
-            "durationSeconds": 3,
-            "startedAt": "2026-10-02T18:14:34.059Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-LWe5yQ/out/trace.jsonl",
+            "turns": 4,
+            "costUsd": 0.14708200000000002,
+            "judgeCostUsd": 0.0017610000000000021,
+            "durationSeconds": 20,
+            "startedAt": "2026-10-03T01:18:07.025Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-n30wfJ/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
@@ -398,7 +398,7 @@
                   false,
                   false
                 ],
-                "evidence": ""
+                "evidence": "I couldn't answer this because I can't find the plugin's sample data from this session.\n\n- **Working directory:** `/tmp/claude-eval-n30wfJ/home/cwd` has no invoices, recipes or plate costings. It only holds empty config placeholders.\n- **Home directory:** I searched for anything named invoice, recipe, plate, sample or restaurant and found nothing.\n- **The plugin itself:** No restaurant-ops plugin is loaded, so no skill or tool gives me its data. The sandbox paths mention `/home/admin/code/plugin-creator/plugins/restaurant-ops`, but this sandbox blocks reading `/home/admin`, and from inside the sandbox that path doesn't exist.\n\nWithout the old invoice and your recipe costings, I can't tell you what the chicken thigh price was before. I also can't tell which plates use the thighs or by how much each plate cost went up. I won't guess at those numbers.\n\nAny of these would let me do it:\n1. **Copy the sample data into this folder:** the new invoice, the previous invoice (or your current ingredient prices) and the recipes with portion sizes.\n2. **Paste the details into chat:** the old case price, how many pounds are in a case, and how much chicken thigh goes into each plate.\n3. **Load or install the restaurant-ops plugin** in this session, or give the sandbox read access to the plugin folder. Changing the sandbox settings is up to you.\n\nOnce I have that, I'll work out the price per pound before and after, the extra cost on each plate, and the new food-cost percentage for each affected plate."
               },
               {
                 "name": "new-food-cost",
@@ -413,11 +413,11 @@
         ]
       },
       "aggregates": {
-        "score": 0,
-        "passRate": 0,
+        "score": 1,
+        "passRate": 1,
         "scoreWithout": 0,
         "passRateWithout": 0,
-        "delta": 0
+        "delta": 1
       }
     },
     {
@@ -465,44 +465,44 @@
       "arms": {
         "with": [
           {
-            "score": 0,
-            "passed": false,
-            "turns": 0,
-            "costUsd": 0.0014790000000000011,
-            "judgeCostUsd": 0.0014790000000000011,
-            "durationSeconds": 3,
-            "startedAt": "2026-10-02T18:14:35.836Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-IFXwPX/out/trace.jsonl",
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.1903698,
+            "judgeCostUsd": 0.0037319999999999957,
+            "durationSeconds": 28,
+            "startedAt": "2026-10-03T01:18:07.295Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-MMRRQP/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
                 "name": "budget",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched 5,?040(\\.00)?",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "flags",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "judge votes: FAIL FAIL FAIL",
+                "explanation": "judge votes: PASS PASS PASS",
                 "withOnly": false,
                 "scored": true,
                 "judgeVotes": [
-                  false,
-                  false,
-                  false
+                  true,
+                  true,
+                  true
                 ],
-                "evidence": ""
+                "evidence": "Draft schedule — this is not legal advice. Review it before you post it.\n\n**The draft comes in $83.50 under your 28% target, but one shift is still unfilled.**\n\n```\nForecast $18,000 | target 28% | labor budget $5,040.00\nScheduled $4,956.50 = 27.54% of forecast (under by $83.50) | 304.5 hours | 1 unfilled shift\n```\n\nThese figures are hourly wages only. They don't include payroll tax, benefits, salaried managers or tips.\n\n**Flags**\n- **Overtime:** Sam is scheduled for 43 hours, which is 3 hours over 40 and adds $29.25 in overtime pay. The script only gave Sam overtime because no other cook could take those hours.\n- **Minors:**\n  - Quinn is 14 or 15. The script applied the federal limits strictly: no work during school hours, 7am–7pm only, 3 hours on a school day and 18 hours in a school week. I assumed school is in session that week, so tell me if it isn't.\n  - Avery is 16 or 17. There are no federal hour limits, but Avery can't use hazardous equipment like meat slicers or power mixers.\n  - State rules can be stricter and weren't checked. Confirm both with your state labor department and check work permits.\n- **Unfilled:** Saturday dish, 17:00–21:30. Both dishwashers are at their limit: Drew would go past the 40-hour cap and Avery is at the 24-hour cap.\n- **Predictive scheduling:** I don't know your location yet. Some cities and the state of Oregon have Fair Workweek laws that require advance notice of schedules and pay for changes. Whether they apply to you depends on your location, how many employees you have and how many locations you run.\n- **Breaks:** 46 shifts are 5 hours or longer. Meal and rest break rules vary by state. All scheduled hours are counted as paid, with no unpaid breaks taken out.\n\n**By day**\n\n| Day | Hours | Labor $ | Day forecast | Labor % |\n|---|---|---|---|---|\n| Mon 10/5 | 40.0 | $652.00 | $1,980 | 32.93% |\n| Tue 10/6 | 40.0 | $652.00 | $1,980 | 32.93% |\n| Wed 10/7 | 40.0 | $651.00 | $2,340 | 27.82% |\n| Thu 10/8 | 40.0 | $651.00 | $2,520 | 25.83% |\n| Fri 10/9 | 51.0 | $826.75 | $3,240 | 25.52% |\n| Sat 10/10 | 51.5 | $826.50 | $3,420 | 24.17% |\n| Sun 10/11 | 42.0 | $668.00 | $2,520 | 26.51% |\n\nDaily labor dollars are at regular pay; the overtime premium is only in the weekly total.\n\n**Suggestions**\n1. **Fill the Saturday dish close.** You could allow Drew one shift over 40 (overtime), or give the shift to someone trained on dish who isn't in the staff list as a dishwasher. I'll re-run it to show what that does to the total.\n2. **Remove Sam's overtime.** If you lower Sam's maximum to 40 hours, the script will move those hours to Jordan, Casey or Parker, who all have room.\n3. **Trim Monday and Tuesday.** Both days run about 33% labor against the weekly 28% target. Cutting or shortening one slow-day shift would make room for suggestions 1 and 2.\n\nTell me which changes you want and I'll re-run the numbers. I also need your **city and state** to check predictive scheduling.\n\nFiles are in `restaurant-ops-output/`:\n- `schedule_draft.csv`\n- `labor_summary.csv`"
               },
               {
                 "name": "scheduled",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched 27\\.54\\s*%",
                 "withOnly": false,
                 "scored": true
               }
@@ -511,22 +511,22 @@
         ],
         "without": [
           {
-            "score": 0,
+            "score": 0.3333333333333333,
             "passed": false,
-            "turns": 0,
-            "costUsd": 0.0026010000000000026,
-            "judgeCostUsd": 0.0026010000000000026,
-            "durationSeconds": 4,
-            "startedAt": "2026-10-02T18:14:36.097Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-HL9FZA/out/trace.jsonl",
+            "turns": 3,
+            "costUsd": 0.12784579999999998,
+            "judgeCostUsd": 0.0019319999999999962,
+            "durationSeconds": 25,
+            "startedAt": "2026-10-03T01:18:08.389Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-envYAP/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
                 "name": "budget",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched 5,?040(\\.00)?",
                 "withOnly": false,
                 "scored": true
               },
@@ -542,7 +542,7 @@
                   false,
                   false
                 ],
-                "evidence": ""
+                "evidence": "I couldn't find the sample staff and shift list. The working directory (`/tmp/claude-eval-envYAP/home/cwd`) is empty apart from config stubs, and there's no staff, shift, roster or schedule file in the folder above it either. I didn't look outside the folders this session can access.\n\nHere's the budget the schedule has to fit:\n\n| | |\n|---|---|\n| Forecast sales | $18,000 |\n| Labor target | 28% |\n| **Labor budget** | **$5,040** |\n\nAt example average wages, that buys roughly:\n- $15/hr → 336 hours\n- $18/hr → 280 hours\n- $22/hr → 229 hours\n\nPayroll taxes and benefits usually add 10–20% on top of wages. If your 28% includes them, the hours are lower: at an 18% load and $18/hr, it's about 237 hours.\n\nTo draft the actual schedule, I need the list. Paste it here or put the file in the working directory. For each person, it should include:\n- Name, role or position, and hourly rate\n- Availability and max hours, including who's part-time or a minor\n- Which shifts need covering each day, with start and end times and the minimum staff per role\n\nIt also helps to know whether the 28% covers taxes and benefits, how the sales split by day if you have it, and whether salaried managers count toward the budget.\n\nOnce I have the list, I'll build the week day by day and show hours and cost by person and by day, plus the labor % against the $5,040 target. I'll flag any overtime, coverage gaps or availability conflicts."
               },
               {
                 "name": "scheduled",
@@ -557,11 +557,11 @@
         ]
       },
       "aggregates": {
-        "score": 0,
-        "passRate": 0,
-        "scoreWithout": 0,
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0.3333333333333333,
         "passRateWithout": 0,
-        "delta": 0
+        "delta": 0.6666666666666667
       }
     },
     {
@@ -609,44 +609,44 @@
       "arms": {
         "with": [
           {
-            "score": 0,
-            "passed": false,
-            "turns": 0,
-            "costUsd": 0.0017480000000000013,
-            "judgeCostUsd": 0.0017480000000000013,
-            "durationSeconds": 3,
-            "startedAt": "2026-10-02T18:14:36.965Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-VCepRr/out/trace.jsonl",
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.15344979999999997,
+            "judgeCostUsd": 0.0028469999999999954,
+            "durationSeconds": 20,
+            "startedAt": "2026-10-03T01:18:26.763Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-WOlANx/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
                 "name": "avg-cm",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched 10\\.17\\b",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "classes",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "judge votes: FAIL FAIL FAIL",
+                "explanation": "judge votes: PASS PASS PASS",
                 "withOnly": false,
                 "scored": true,
                 "judgeVotes": [
-                  false,
-                  false,
-                  false
+                  true,
+                  true,
+                  true
                 ],
-                "evidence": ""
+                "evidence": "**Menu engineering: sample Square export, 30 days, 5 items, 960 sold**\nThe popularity cutoff is 14.00% of sales (70% of 1/5). The weighted average contribution margin (CM, price minus plate cost) is $10.17.\n\n| Item | Qty | Mix % | Price | Cost | CM | Class |\n|---|---|---|---|---|---|---|\n| Chicken Bowl | 420 | 43.75% | $12.00 | $2.43 | $9.57 | Plowhorse |\n| Salmon Plate | 250 | 26.04% | $19.00 | $7.10 | $11.90 | Star |\n| Steak Bowl | 140 | 14.58% | $16.00 | $5.60 | $10.40 | Star |\n| Veggie Bowl | 90 | 9.38% | $13.50 | $2.10 | $11.40 | Puzzle |\n| Kids Plate | 60 | 6.25% | $7.00 | $2.20 | $4.80 | Dog |\n\n**What to do with each dish:**\n- **Salmon Plate (Star):** Keep it. It brings in the highest CM per plate ($11.90) and sells a lot. Keep the portion and quality steady, give it the best spot on the menu, and test a small price rise.\n- **Steak Bowl (Star):** Keep it, but it's only just a Star: 14.58% of sales against a 14.00% cutoff, and $10.40 CM against $10.17. Protect the portion, and only test a price rise once sales hold steady.\n- **Chicken Bowl (Plowhorse):** This is your volume driver. It sold 420 and brought in the most total CM ($4,018), but each plate earns less than average ($9.57). Nudge the price or trim a costly component. Don't hide it on the menu.\n- **Veggie Bowl (Puzzle):** It earns a strong $11.40 per plate but doesn't sell much. Move it to a more visible spot on the menu, put a box around it, sharpen its description and have staff recommend it.\n- **Kids Plate (Dog):** It's lowest on both sales (60) and CM ($4.80). If you need it to keep families coming in, rework the recipe or price instead of cutting it. Otherwise it's the one to drop.\n\n**Notes:**\n- **Fountain Drink isn't included.** It sold 300 for $825 net, but there's no recipe cost on file for it. Drinks should be analyzed as their own category anyway.\n- **Refunds:** one refund row was subtracted from the sales.\n- **Discounts:** prices are what guests actually paid (net sales ÷ qty), so any discounts are already in the CM figures.\n- **Add-ons:** paid modifiers aren't costed in this version.\n\nThe full matrix is in `restaurant-ops-output/menu_matrix.csv`. If you want, I can run plate-cost on the Chicken Bowl to find which ingredient costs the most."
               },
               {
                 "name": "pop-threshold",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched 14(\\.00)?\\s*%",
                 "withOnly": false,
                 "scored": true
               }
@@ -657,13 +657,13 @@
           {
             "score": 0,
             "passed": false,
-            "turns": 0,
-            "costUsd": 0.0010760000000000023,
-            "judgeCostUsd": 0.0010760000000000023,
-            "durationSeconds": 3,
-            "startedAt": "2026-10-02T18:14:38.780Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-7Y69ye/out/trace.jsonl",
+            "turns": 4,
+            "costUsd": 0.15527739999999998,
+            "judgeCostUsd": 0.0030389999999999966,
+            "durationSeconds": 22,
+            "startedAt": "2026-10-03T01:18:33.048Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-Tbaoop/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
@@ -686,7 +686,7 @@
                   false,
                   false
                 ],
-                "evidence": ""
+                "evidence": "I couldn't run the analysis because I couldn't find the sample Square sales export.\n\n**Where I looked:**\n- The working directory (`/tmp/claude-eval-Tbaoop/home/cwd`) is an empty git repo with no commits. It has no CSV, XLSX or sales files.\n- I searched everything under the home and temp directories I'm allowed to read for `*.csv`, `*.xlsx`, `*sales*` and `*menu*`. Only config files came up.\n- None of my available skills does menu engineering, and no restaurant tool is connected.\n\nThe sandbox blocks reading a `restaurant-ops` plugin folder with an `evals/menu-engineering-square` subfolder under `/home/admin/code/plugin-creator/`. That's probably where the sample lives. That folder wasn't given to this session, so I didn't try to work around the block.\n\n**To get this done, either:**\n1. Copy the export into the working directory (for example `cp …/sample.csv /tmp/claude-eval-Tbaoop/home/cwd/`) and tell me the filename, or\n2. Add that folder to the sandbox's allowed read paths.\n\n**Once I have the file, here's what I'll do:**\n- **Popularity:** each dish's share of units sold within its category. A dish counts as high if it sells at least 70% of an even share (1/N of the category's units, where N is the number of dishes).\n- **Profit:** each dish's contribution margin, meaning price minus food cost, compared with the category's average weighted by units sold.\n- **Sorting:** every dish goes into one of four groups, each with a recommendation:\n  - **Stars** (popular, high margin): keep, protect quality, feature them.\n  - **Plowhorses** (popular, low margin): small price increase, cut portion cost or re-engineer the recipe.\n  - **Puzzles** (unpopular, high margin): reposition on the menu, rename, have staff recommend them.\n  - **Dogs** (unpopular, low margin): remove or rework.\n\nSquare item exports usually include units sold and gross sales but **not food cost**. If the sample has no cost column, I'll also need a cost per dish (or a food-cost % per category) to work out margins."
               },
               {
                 "name": "pop-threshold",
@@ -701,11 +701,11 @@
         ]
       },
       "aggregates": {
-        "score": 0,
-        "passRate": 0,
+        "score": 1,
+        "passRate": 1,
         "scoreWithout": 0,
         "passRateWithout": 0,
-        "delta": 0
+        "delta": 1
       }
     },
     {
@@ -764,54 +764,54 @@
       "arms": {
         "with": [
           {
-            "score": 0,
-            "passed": false,
-            "turns": 0,
-            "costUsd": 0.0022250000000000013,
-            "judgeCostUsd": 0.0022250000000000013,
-            "durationSeconds": 3,
-            "startedAt": "2026-10-02T18:14:39.849Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-HRQpw0/out/trace.jsonl",
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.1347828,
+            "judgeCostUsd": 0.002627999999999995,
+            "durationSeconds": 17,
+            "startedAt": "2026-10-03T01:18:35.707Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-rOwUKc/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
                 "name": "food-cost-pct",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched 20\\.28\\s*%",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "plate-cost",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched 2\\.43\\b",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "price-at-target",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched \\$\\s*8\\.69\\b",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "working",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "judge votes: FAIL FAIL FAIL",
+                "explanation": "judge votes: PASS PASS PASS",
                 "withOnly": false,
                 "scored": true,
                 "judgeVotes": [
-                  false,
-                  false,
-                  false
+                  true,
+                  true,
+                  true
                 ],
-                "evidence": ""
+                "evidence": "**Chicken Bowl**: plate cost $2.43 at a menu price of $12.00, which is a 20.28% food cost.\n\n| Component | Qty | Line cost | Working |\n|---|---|---|---|\n| Chicken thigh, boneless skinless | 6 oz | $1.1484 | $98.00 / 40 lb = $2.4500/lb AP; / 80% yield = $3.0625/lb EP; × 0.375 lb |\n| Jasmine rice | 0.25 lb | $0.2100 | $42.00 / 50 lb = $0.8400/lb; × 0.25 lb |\n| House sauce | 2 fl oz | $0.3750 | batch $12.00 / 64 fl oz = $0.1875/fl oz; × 2 |\n| Avocado, Hass 48ct | 0.5 ea | $0.5500 | $52.80 / 48 = $1.1000/ea; × 0.5 |\n| Bowl + lid, 32oz kraft | 1 ea | $0.1500 | $45.00 / 300 = $0.1500/ea |\n\n**To hit 28% food cost you'd charge $8.69.** You're currently at $12.00, so the bowl already runs under 28%. To hit 28% exactly you'd have to cut the price, not raise it.\n\n**Biggest cost line:** the chicken thigh, at $1.1484 a plate. The 80% cooking yield adds to its cost.\n\n**Levers, if you want to change it:**\n1. **Keep the price at $12.00.** The bowl is already more profitable than your target. Before you drop the price to $8.69, think about what competitors charge and how guests see the value at each price.\n2. **Chicken yield.** Each point of yield you win back on the thigh (trim, cook temperature, holding) lowers the cost of the biggest line directly.\n3. **Avocado.** Half an avocado is the second-biggest line. Portioning it consistently, or buying a different count size, keeps it under control.\n\n**Files written** (they open in Excel or Google Sheets):\n- `/tmp/claude-eval-rOwUKc/tmp/claude-1000/restaurant-ops-output/recipe_costs.csv`\n- `/tmp/claude-eval-rOwUKc/tmp/claude-1000/restaurant-ops-output/recipe_lines.csv`\n\nAll of this comes from the plugin's fictional sample restaurant data."
               }
             ]
           }
@@ -820,13 +820,13 @@
           {
             "score": 0,
             "passed": false,
-            "turns": 0,
-            "costUsd": 0.002630000000000002,
-            "judgeCostUsd": 0.002630000000000002,
-            "durationSeconds": 4,
-            "startedAt": "2026-10-02T18:14:40.039Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-CBZT4h/out/trace.jsonl",
+            "turns": 3,
+            "costUsd": 0.11311820000000002,
+            "judgeCostUsd": 0.0018810000000000077,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-03T01:18:47.011Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-EECC4F/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
@@ -865,18 +865,18 @@
                   false,
                   false
                 ],
-                "evidence": ""
+                "evidence": "I couldn't find the plugin's sample data, so I haven't costed the Chicken Bowl. I didn't want to guess at the numbers.\n\nWhat I checked:\n- **Skills:** No restaurant-ops skill is loaded in this session. The available skills are general ones like dataviz, code-review and loop, and none of them handle recipe costing.\n- **Working directory:** `/tmp/claude-eval-EECC4F/home/cwd` only has config files. There are no recipes, ingredient prices or sample restaurant files.\n- **Plugin source:** The sandbox blocks reading `/home/admin/code/plugin-creator/plugins/restaurant-ops`, and from inside the sandbox it shows up as \"No such file or directory.\"\n- **Search:** Searching the readable home and temp directories for files named like restaurant, recipe or sample found nothing.\n\nTo continue, you can do one of these:\n1. **Enable the restaurant-ops plugin** in this session so its skill and bundled sample data load.\n2. **Give the sandbox read access** to the plugin directory, or copy its sample data into the working directory. That's a settings change you'd need to make.\n3. **Paste the Chicken Bowl recipe** here: each ingredient with its portion size, plus the purchase price and pack size.\n\nOnce I have the data, I'll cost each ingredient line, add any yield or waste factors the data gives, and total the plate cost. The menu price for 28% food cost is **plate cost ÷ 0.28**. For example, a $3.50 plate cost works out to $12.50, which you'd usually round to a menu price like $12.49 or $12.95."
               }
             ]
           }
         ]
       },
       "aggregates": {
-        "score": 0,
-        "passRate": 0,
+        "score": 1,
+        "passRate": 1,
         "scoreWithout": 0,
         "passRateWithout": 0,
-        "delta": 0
+        "delta": 1
       }
     },
     {
@@ -913,30 +913,30 @@
       "arms": {
         "with": [
           {
-            "score": 0,
-            "passed": false,
-            "turns": 0,
-            "costUsd": 0,
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.17065120000000003,
             "judgeCostUsd": 0,
-            "durationSeconds": 1,
-            "startedAt": "2026-10-02T18:14:41.981Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-x5orqr/out/trace.jsonl",
+            "durationSeconds": 22,
+            "startedAt": "2026-10-03T01:18:53.168Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-APjaj2/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
                 "name": "skill-fired",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "Skill called 0x (expected 1..∞)",
+                "explanation": "Skill called 1x (expected 1..∞)",
                 "withOnly": true,
                 "scored": false
               },
               {
                 "name": "steak",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched 35(\\.00)?\\s*%",
                 "withOnly": false,
                 "scored": true
               }
@@ -947,13 +947,13 @@
           {
             "score": 0,
             "passed": false,
-            "turns": 0,
-            "costUsd": 0,
+            "turns": 3,
+            "costUsd": 0.10625780000000001,
             "judgeCostUsd": 0,
-            "durationSeconds": 1,
-            "startedAt": "2026-10-02T18:14:43.126Z",
-            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
-            "tracePath": "/tmp/claude-eval-Ppkp2q/out/trace.jsonl",
+            "durationSeconds": 14,
+            "startedAt": "2026-10-03T01:18:55.016Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-D3J3pG/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
@@ -969,19 +969,19 @@
         ]
       },
       "aggregates": {
-        "score": 0,
-        "passRate": 0,
+        "score": 1,
+        "passRate": 1,
         "scoreWithout": 0,
         "passRateWithout": 0,
-        "delta": 0
+        "delta": 1
       }
     }
   ],
   "aggregates": {
     "casesTotal": 7,
-    "casesPassed": 0,
-    "overallScore": 0,
-    "overallPassRate": 0,
-    "meanDelta": 0
+    "casesPassed": 7,
+    "overallScore": 1,
+    "overallPassRate": 1,
+    "meanDelta": 0.9523809523809524
   }
 }
